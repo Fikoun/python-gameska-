@@ -7,7 +7,7 @@ Gameska vytvořená pro učební účely.
 
 What things you need to run the software and how to install them
 ```
-[python](https://www.python.org/ftp/python/3.6.5/python-3.6.5.exe) > 3
+python > 3
 ```
 
 ## Installing

@@ -12,8 +12,8 @@ class Item:
 Items = []
 
 
-def newItem(name, desc, price):
-	novy_item = Item(name, desc, price)
+def newItem(name, desc, price, plus_hp,plus_dmg):
+	novy_item = Item(name, desc, price,plus_hp,plus_dmg)
 	Items.append(novy_item)
 
 

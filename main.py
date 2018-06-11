@@ -70,10 +70,10 @@ def obchod():
                
                hrac.add_item(Items[koupeny_item])
 
-               print(f"--  Koupen item <{Items[koupeny_item].name}> za {Items[koupeny_item].price}$  --")
+               print(f"--  Koupen item <{Items[koupeny_item].name}> za {Items[koupeny_item].price}$ tve hp se zvysili o <{Items[koupeny_item].plus_hp}> a dmg o <{Items[koupeny_item].plus_dmg}>")
 
                hrac.health += Items[koupeny_item].plus_hp
-               hrac.damage += Items[koupeny_item].plus_dmg
+               hrac.attack += Items[koupeny_item].plus_dmg
 
 
                wait()

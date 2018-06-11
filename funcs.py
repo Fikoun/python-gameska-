@@ -3,7 +3,10 @@ import os
 from math import *
 
 # Clears console window
-clear = lambda: os.system('cls')
+clear = lambda : os.system('cls')
+
+def clear():
+    os.system('cls')
 
 # Prints multiple options and handles input.
 def choice(title, opts):
@@ -48,4 +51,34 @@ def getTabs(txt,all):
     for _ in range(1+round((longest-len(txt))/5.65)):
         res += "\t"
     return res
-    # Tohle je špatně pak dodělat
+    # Zbavit se této finkce a nahradit ji.
+
+
+def table(border, spacing, content):
+    bor = '|' if border else ''
+    separ = "+"
+    longest = [0] * len(content[0])
+    for i in range(0, len(content[0])):
+        for radek in content:
+            if longest[i] < len(radek[i]):
+                longest[i] = len(radek[i])
+        separ += ('-'*(longest[i]+spacing+2))+'+'
+
+    for radek in content:
+        print()
+        print(separ if border else '')  
+        for i, bunka in enumerate(radek):
+            print(bor+bunka,' '*((longest[i]-len(bunka))+spacing),bor if i==len(radek)-1 else '', end="")
+    print()
+    print(separ if border else '')  
+
+
+# PŘÍKLAD
+# table(True, 0,[
+
+#     ["gjkhgkjPrvek1", "ztweuizweriuzretiufwztferuzpisek", "ghjfCena"],
+#     ["hhPrvek2", "ghjhhPopisek2", "Cenaa"],
+#     ["Prvek3", "Popisek3", "ggCenaaa"],
+#     ["gjkgjhPrvek4", "hPopisek", "ggghjgfjhgfghjfCenaaa"],
+#     ["ghjPrvek5", "gjkhhPopisek5", "fCenaaaa"],
+# ])

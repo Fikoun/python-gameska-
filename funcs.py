@@ -45,40 +45,44 @@ def printBig(txt):
 def getTabs(txt,all):
     longest = 0;
     for i in all:
-        if len(i.name) > longest:
-            longest = len(i.name)
+        if len(str(i.name)) > longest:
+            longest = len(str(i.name))
     res = ""
-    for _ in range(1+round((longest-len(txt))/5.65)):
+    for _ in range(1+round((longest-len(str(txt)))/5.65)):
         res += "\t"
     return res
     # Zbavit se této finkce a nahradit ji.
 
 
-def table(border, spacing, content):
+def printTable(content, border=False, spacing=3):
     bor = '|' if border else ''
     separ = "+"
     longest = [0] * len(content[0])
     for i in range(0, len(content[0])):
         for radek in content:
-            if longest[i] < len(radek[i]):
-                longest[i] = len(radek[i])
+            if longest[i] < len(str(radek[i])):
+                longest[i] = len(str(radek[i]))
         separ += ('-'*(longest[i]+spacing+2))+'+'
 
-    for radek in content:
+    for x, radek in enumerate(content):
         print()
-        print(separ if border else '')  
+        print((separ.replace("-","=") if x==0 or x==1 else separ) if border else '')  
         for i, bunka in enumerate(radek):
-            print(bor+bunka,' '*((longest[i]-len(bunka))+spacing),bor if i==len(radek)-1 else '', end="")
+            print(bor+str(bunka),' '*((longest[i]-len(str(bunka)))+spacing),bor if i==len(radek)-1 else '', end="")
     print()
-    print(separ if border else '')  
+    print((separ.replace("-","=") if x==0 else separ) if border else '')  
+        
 
+def objectToList(insts, attrs):
+    attrs = attrs.split(" ")
+    return [ [getattr(inst, attr) for attr in attrs] for inst in insts ] 
 
 # PŘÍKLAD
-# table(True, 0,[
+# printTable([
 
 #     ["gjkhgkjPrvek1", "ztweuizweriuzretiufwztferuzpisek", "ghjfCena"],
 #     ["hhPrvek2", "ghjhhPopisek2", "Cenaa"],
 #     ["Prvek3", "Popisek3", "ggCenaaa"],
 #     ["gjkgjhPrvek4", "hPopisek", "ggghjgfjhgfghjfCenaaa"],
 #     ["ghjPrvek5", "gjkhhPopisek5", "fCenaaaa"],
-# ])
+# ],True, 0)

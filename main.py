@@ -4,6 +4,16 @@ from items.item import *
 from funcs import *
 from math import *
 
+# Peníze jdou v boji do mínusu??? 
+# Vytvořit metody v Hraci pro zvíšování statů.
+# Předělat výpis itemů v obchodu na funkci: printTable()
+# Projít komentáře v kódu a udělat potřebné úpravy.
+# Napsat si vlastní komentáře k lepší orientaci v kódu.
+
+# Vytvořit popisky a dokumentaci funkcí. (Janko)
+
+
+
 # BOJ ------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------
 def boj():
@@ -23,7 +33,7 @@ def boj():
             info_enemy = hrac.dealDamageTo(enemak)
 
         elif vyber == 2:
-            info_hrac= enemak.dealDamageTo(hrac)
+            info_hrac = enemak.dealDamageTo(hrac)
             info_enemy = hrac.dealDamageTo(enemak)
 
         elif vyber == 3:
@@ -57,30 +67,20 @@ def boj():
 #------------------------------------------------------------------------------------
 
 
-def obchod():
-    while True:
-        clear()
-        vyber = choice("OBCHOD :", ["Koupit Item", "Odejít z Obchodu"])
-        clear()
-        if vyber == 1:
-            while True:
-               koupeny_item = choice("Vyber item:",[item.name+getTabs(item.name, Items)+" -- "+str(item.price)+"$" for item in Items])-1
-               clear()
-               printBig("Koupit")
-               
-               hrac.add_item(Items[koupeny_item])
+def obchod():   
+    koupeny_item = choice("Vyber item:",[item.name+getTabs(item.name, Items)+" -- "+str(item.price)+"$" for item in Items])-1
+    clear()
 
-               print(f"--  Koupen item <{Items[koupeny_item].name}> za {Items[koupeny_item].price}$ tve hp se zvysili o <{Items[koupeny_item].plus_hp}> a dmg o <{Items[koupeny_item].plus_dmg}>")
+    printBig("Uctenka E E T")
 
-               hrac.health += Items[koupeny_item].plus_hp
-               hrac.attack += Items[koupeny_item].plus_dmg
+    hrac.add_item(Items[koupeny_item])
+    print(f"--  Koupen item <{Items[koupeny_item].name}> za {Items[koupeny_item].price}$ tve hp se zvysili o <{Items[koupeny_item].plus_hp}> a dmg o <{Items[koupeny_item].plus_dmg}>")
 
+    hrac.health += Items[koupeny_item].plus_hp
+    hrac.attack += Items[koupeny_item].plus_dmg
 
-               wait()
-               clear()
-               break
-        elif vyber == 2:
-            return
+    wait()
+    clear()
     # Peníze se neodečítají ani nekontrolují.
     # Itemů a jejic přidávání hráčovi se musí dodělat.
     # Dalé jejich effekt na hru jako třeba zvíší attack.
@@ -114,7 +114,6 @@ newItem("Meč", "Seká", 20,0,20)
 newItem("Magická Hůl", "Čaruje", 50,10,40)
 newItem("Kopřivova Rovnice", "počítá", 20,0,35)
 
-
 #------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------
 
@@ -124,7 +123,7 @@ newItem("Kopřivova Rovnice", "počítá", 20,0,35)
 
 while True:
     clear()
-    vyber = choice("HLAVNI MENU :", ["Boj", "Obchod","Inventář", "Konec", ])
+    vyber = choice("HLAVNI MENU :", ["Boj", "Obchod","Inventář", "Konec"])
     clear()
     if vyber == 1:
         boj()

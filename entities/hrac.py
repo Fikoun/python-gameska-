@@ -1,4 +1,5 @@
 from entities.entity import *
+from funcs import *
 
 class Hrac(Entity):
     def __init__(self, name, max_health, attack):
@@ -22,8 +23,11 @@ class Hrac(Entity):
             print(f"Tvoje Penize jsou {self.money}")
     """
     def showInv(self):
-        for item in self.inventory:
-            print (item.name)
+        printBig("Inventory")
+        if len(self.inventory):
+            printTable([["JMÉNO", "POPIS", "+ HP" , "+ DMG"]] + objectToList(self.inventory, "name desc plus_hp plus_dmg"), True)
+        else:
+            print("--- Zatím nemáš žádné itemy. Pro jejich získání navštiv obchod ---");
 
     def add_item(self,item):
         self.inventory.append(item)

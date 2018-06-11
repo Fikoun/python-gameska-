@@ -96,7 +96,7 @@ print("---")
 clear()
 printBig("| ARENA - GAME |")
 print("Made by: \t Drábek, Janko")
-print("Version: \t 0.0.2v")
+print("Version: \t 0.0.3v")
 wait()
 clear()
 

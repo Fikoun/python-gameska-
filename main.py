@@ -1,9 +1,9 @@
-from entities.entity import *
 from entities.hrac import *
 from entities.enemy import *
 from items.item import *
 from funcs import *
 from math import *
+
 # BOJ ------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------
 def boj():
@@ -68,6 +68,8 @@ def obchod():
                clear()
                printBig("Koupit")
                
+               hrac.add_item(Items[vyber_itemu-1])
+
                print(f"--  Koupen item <{Items[vyber_itemu-1].name}> za {Items[vyber_itemu-1].price}$  --")
                wait()
                clear()
@@ -89,7 +91,7 @@ print("---")
 clear()
 printBig("| ARENA - GAME |")
 print("Made by: \t Drábek, Janko")
-print("Version: \t 0.0.1v")
+print("Version: \t 0.0.2v")
 wait()
 clear()
 

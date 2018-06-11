@@ -64,13 +64,18 @@ def obchod():
         clear()
         if vyber == 1:
             while True:
-               vyber_itemu = choice("Vyber item:",[item.name+getTabs(item.name, Items)+" -- "+str(item.price)+"$" for item in Items]) 
+               koupeny_item = choice("Vyber item:",[item.name+getTabs(item.name, Items)+" -- "+str(item.price)+"$" for item in Items])-1
                clear()
                printBig("Koupit")
                
-               hrac.add_item(Items[vyber_itemu-1])
+               hrac.add_item(Items[koupeny_item])
 
-               print(f"--  Koupen item <{Items[vyber_itemu-1].name}> za {Items[vyber_itemu-1].price}$  --")
+               print(f"--  Koupen item <{Items[koupeny_item].name}> za {Items[koupeny_item].price}$  --")
+
+               hrac.health += Items[koupeny_item].plus_hp
+               hrac.damage += Items[koupeny_item].plus_dmg
+
+
                wait()
                clear()
                break
@@ -100,14 +105,15 @@ hrac = Hrac(input("\t> "),1000 ,200)
 clear()
 
 
-newItem("Dvořákova taška", "Krade", 50)
-newItem("Ziggyho Hlava", "Boduje", 20)
+newItem("Dvořákova taška", "Krade", 50 , 20,20)
+newItem("Ziggyho Hlava", "Boduje", 20, 10, 10)
 
-newItem("Kopí", "Probodává", 50)
-newItem("Meč", "Seká", 20)
+newItem("Kopí", "Probodává", 50,0,30)
+newItem("Meč", "Seká", 20,0,20)
 
-newItem("Magická Hůl", "Čaruje", 50)
-newItem("Kopřivova Rovnice", "počítá", 20)
+newItem("Magická Hůl", "Čaruje", 50,10,40)
+newItem("Kopřivova Rovnice", "počítá", 20,0,35)
+
 
 #------------------------------------------------------------------------------------
 #------------------------------------------------------------------------------------

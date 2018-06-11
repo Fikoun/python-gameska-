@@ -49,3 +49,5 @@ def getTabs(txt,all):
         res += "\t"
     return res
     # Tohle je špatně pak dodělat
+
+    

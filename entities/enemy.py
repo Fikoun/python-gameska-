@@ -18,7 +18,7 @@ enemy_names = [
 
 def newEnemy(baseHP, baseAT):
 	return Enemy(random.choice(enemy_names), 
-		random.randint(int(baseHP * (3/7)),int(baseHP * (7/8))),
-        random.randint(int(baseAT * (3/7)),int(baseAT * (7/8)) ))
+		random.randint(int(baseHP * (4/7)),int(baseHP * (9/8))),
+        random.randint(int(baseAT * (4/7)),int(baseAT * (9/8)) ))
 	# Vyladit tuhle funkci.
 

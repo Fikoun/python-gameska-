@@ -31,3 +31,10 @@ class Hrac(Entity):
 
     def add_item(self,item):
         self.inventory.append(item)
+
+
+    def hasenoughmoney(self,item):
+        if (self.money >= item.price):
+            return True
+        else:
+            return False

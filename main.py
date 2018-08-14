@@ -149,7 +149,7 @@ while True:
     print("< 3 az 9 znaku >")
     jmeno_zadane = input("\t> ")
     if (len(jmeno_zadane) <= 9) and (len(jmeno_zadane) >= 3):
-        player = Hrac(jmeno_zadane,1000,200)
+        hrac = Hrac(jmeno_zadane,1000,200)
         break
     else:
         clear()
